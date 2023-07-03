@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciador de senhas</title>
+</head>
+<body>
+  <script>
+// Dados de exemplo para fins ilustrativos
+const usuario = [
+    { nome: "Gabriel", senha: "Directa-123" }
+  ];
+  
+  function fazerLogin() {
+    const nomeUsuario = document.getElementById("nomeUsuario").value;
+    const senhaUsuario = document.getElementById("senhaUsuario").value;
+  
+    function redirecionarParaPagina() {
+  // Redirecionar para a página "outraPagina.html"
+      window.location.href = "Login_senha.html";
+}
+  
+    // Verificar se o nome de usuário e senha estão corretos
+    const usuarioEncontrado = usuario.find(
+      usuario => usuario.nome === nomeUsuario && usuario.senha === senhaUsuario
+    );
+  
+    if (usuarioEncontrado) {
+      alert("Login bem-sucedido! Bem-vindo, " + usuarioEncontrado.nome);
+      
+      redirecionarParaPagina(); // Redirecionar para a página desejada
+
+    } else {
+      alert("Nome de usuário ou senha incorretos. Tente novamente!");
+    }
+  }
+
+  </script>
+  <!-- Exemplo de uso em HTML com campos de entrada e um botão -->
+  <input type="text" id="nomeUsuario" placeholder="Nome de usuário">
+  <input type="password" id="senhaUsuario" placeholder="Senha">
+  <button onclick="fazerLogin()">Entrar</button>
+</body>
+</html>
